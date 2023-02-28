@@ -31,7 +31,7 @@ welcome_messages = {}
 
 
 def configure_qa_chain():
-    devsu_loader = PagedPDFSplitter("./files/Devsu Employee Handbook.pdf")
+    devsu_loader = PagedPDFSplitter("./Devsu Employee Handbook.pdf")
     devsu_pages = devsu_loader.load_and_split(NLTKTextSplitter(chunk_size=2000, chunk_overlap=100))
     embeddings = OpenAIEmbeddings()
     faiss_index = FAISS.from_documents(devsu_pages, OpenAIEmbeddings())
